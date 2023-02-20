@@ -1,0 +1,33 @@
+{
+  "name": "miniproject2backend",
+  "version": "1.0.0",
+  "description": "Back End of mini project 2",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanCastillonDelaPena/miniProject2BackEnd.git"
+  },
+  "keywords": [
+    "back",
+    "end",
+    "mini",
+    "project",
+    "2"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathanCastillonDelaPena/miniProject2BackEnd/issues"
+  },
+  "homepage": "https://github.com/JonathanCastillonDelaPena/miniProject2BackEnd#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.2"
+  }
+}
