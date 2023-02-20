@@ -13,18 +13,20 @@ app.use(express.urlencoded({ extended: true }));
 const testRoutes = require("./routes/testRoutes");
 app.use("/testingPage", testRoutes);
 
-// set PORT to listen for requests
-const PORT = process.env.PORT || ++process.env.PORT || 8081;
-app.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
-});
-
 // set connection to MongoDB
 const db = require("./data/database");
 db.mongoose
   .connect(db.connectionString)
   .then(() => {
     console.log("Connected to MongoDB...");
+
+    // set PORT to listen for requests
+    const PORT = process.env.PORT || ++process.env.PORT || 8081;
+    // The app will only start listening to request when the connection
+    // to MongoDB is established
+    app.listen(PORT, () => {
+      console.log(`Server is running on port: ${PORT}`);
+    });
   })
   .catch((err) => {
     console.log("Cannot connect to MongoDB...", err);
