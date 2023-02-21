@@ -15,8 +15,20 @@ app.use(express.urlencoded({ extended: true }));
 const testRoutes = require("./routes/testRoutes");
 app.use("/testingPage", testRoutes);
 
+const adminRoutes = require("./routes/adminRoutes");
+app.use("/admin", adminRoutes);
+
+const buyerRoutes = require("./routes/buyerRoutes");
+app.use("/buyer", buyerRoutes);
+
 const productRoutes = require("./routes/productRoutes");
 app.use("/product", productRoutes);
+
+const couponRoutes = require("./routes/couponRoutes");
+app.use("/coupon", couponRoutes);
+
+const cartRoutes = require("./routes/cartRoutes");
+app.use("/cart", cartRoutes);
 
 //#endregion
 

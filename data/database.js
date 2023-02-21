@@ -4,8 +4,11 @@ mongoose.Promise = global.Promise;
 const db = {};
 db.mongoose = mongoose;
 db.connectionString = process.env.DB_CONNECTION_STRING;
-db.users = require("./dataModels/UserModel");
+db.admins = require("./dataModels/adminModel");
+db.buyers = require("./dataModels/buyerModel");
 db.products = require("./dataModels/productModel");
+db.coupons = require("./dataModels/couponModel");
+db.carts = require("./dataModels/cartModel");
 
 // schema for testing
 db.tests = require("./dataModels/testModel");
