@@ -10,8 +10,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//#region Routes
+
 const testRoutes = require("./routes/testRoutes");
 app.use("/testingPage", testRoutes);
+
+const productRoutes = require("./routes/productRoutes");
+app.use("/product", productRoutes);
+
+//#endregion
 
 // set connection to MongoDB
 const db = require("./data/database");
