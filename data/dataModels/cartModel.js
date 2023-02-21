@@ -6,8 +6,8 @@ const cartModel = new Schema(
     buyer: Schema.Types.Mixed,
     appliedCoupon: Schema.Types.Mixed,
     products: [Schema.Types.Mixed],
-    rawTotal: Schema.Types.Decimal128,
-    finalTotal: Schema.Types.Decimal128,
+    rawTotal: Number,
+    finalTotal: Number,
     status: { type: String, default: "Pending" },
   },
   { timestamps: true }

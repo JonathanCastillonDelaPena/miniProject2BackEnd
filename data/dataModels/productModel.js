@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const productModel = new Schema(
   {
     name: { type: String, required: true },
-    price: Schema.Types.Decimal128,
+    price: Number,
     discount: { type: Number, default: 0 },
     stock: { type: Number, required: true },
     category: { type: String, required: true },
