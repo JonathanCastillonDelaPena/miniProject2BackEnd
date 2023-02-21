@@ -4,7 +4,7 @@ const Test = db.tests;
 const create = (req, res) => {
   const data = req.body;
   // Validate request
-  if (!data.name) {
+  if (Object.entries(data).length === 0) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }

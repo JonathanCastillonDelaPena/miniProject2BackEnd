@@ -15,6 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 const testRoutes = require("./routes/testRoutes");
 app.use("/testingPage", testRoutes);
 
+const buyerRoutes = require("./routes/buyerRoutes");
+app.use("/buyer", buyerRoutes);
+
 const productRoutes = require("./routes/productRoutes");
 app.use("/product", productRoutes);
 

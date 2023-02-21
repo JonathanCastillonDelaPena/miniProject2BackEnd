@@ -4,7 +4,7 @@ const Coupon = db.coupons;
 const create = (req, res) => {
   const data = req.body;
 
-  if (!data.title) {
+  if (Object.entries(data).length === 0) {
     res.status(400).send({ message: `Content cannot be empty.` });
     console.log(`\nCannot create empty Coupon.`);
     return;
@@ -49,7 +49,7 @@ const findAll = (req, res) => {
         console.log(`\nNo Coupons found from the database.`);
       } else {
         res.send(data);
-        console.log(`\nProducts from database:\n${data}`);
+        console.log(`\nCoupons from database:\n${data}`);
       }
     })
     .catch((err) => {
@@ -144,5 +144,5 @@ const remove = (req, res) => {
     });
 };
 
-const productController = { create, findAll, findOne, update, remove };
-module.exports = productController;
+const couponController = { create, findAll, findOne, update, remove };
+module.exports = couponController;

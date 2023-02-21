@@ -4,7 +4,7 @@ const Product = db.products;
 const create = (req, res) => {
   const data = req.body;
 
-  if (!data.name) {
+  if (Object.entries(data).length === 0) {
     res.status(400).send({ message: `Content cannot be empty.` });
     console.log(`\nCannot create empty Product.`);
     return;
