@@ -5,6 +5,8 @@ router.post("/", product.create);
 
 router.get("/", product.findAll);
 
+router.get("/:id", product.findOne);
+
 router.put("/:id", product.update);
 
 router.delete("/:id", product.remove);

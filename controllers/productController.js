@@ -30,6 +30,9 @@ const create = (req, res) => {
         message:
           err.message || `Error while saving the Product to the database.`,
       });
+      console.log(`\n`);
+      console.log(err);
+      console.log(`\nError while saving the Product to the database.`);
     });
 };
 
@@ -41,14 +44,47 @@ const findAll = (req, res) => {
 
   Product.find(condition)
     .then((data) => {
-      res.send(data);
-      console.log(`\nProducts from database:\n${data}`);
+      if (!data) {
+        res
+          .status(400)
+          .send({ message: `No Products found from the database.` });
+        console.log(`\nNo Products found from the database.`);
+      } else {
+        res.send(data);
+        console.log(`\nProducts from database:\n${data}`);
+      }
     })
     .catch((err) => {
       res.status(500).send({
         message:
           err.message || `Error while finding all Products from database.`,
       });
+      console.log(`\n`);
+      console.log(err);
+      console.log(`\nError while finding all Products from database.`);
+    });
+};
+
+const findOne = (req, res) => {
+  const id = req.params.id;
+
+  Product.findById(id)
+    .then((data) => {
+      if (!data) {
+        res.status(400).send({ message: `Cannot find Product with id=${id}` });
+        console.log(`\nCannot find Product with id=${id}`);
+      } else {
+        res.send(data);
+        console.log(`\nFOUND Product with id=${id}\n${data}`);
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || `Error while finding Product with id=${id}`,
+      });
+      console.log(`\n`);
+      console.log(err);
+      console.log(`\nError while finding Product with id=${id}`);
     });
 };
 
@@ -70,12 +106,16 @@ const update = (req, res) => {
         console.log(`\nCannot update Product with id=${id}`);
       } else {
         res.send({ message: `Product with id=${id} was updated.` });
+        console.log(`\nUPDATED Product with id=${id}`);
       }
     })
     .catch((err) => {
       res.status(500).send({
         message: err.message || `Error updating Product with id=${id}`,
       });
+      console.log(`\n`);
+      console.log(err);
+      console.log(`\nError updating Product with id=${id}`);
     });
 };
 
@@ -93,14 +133,18 @@ const remove = (req, res) => {
         res.send({
           message: `Product with id=${id} was deleted.`,
         });
+        console.log(`\nDELETED Product with id=${id}`);
       }
     })
     .catch((err) => {
       res.status(500).send({
         message: err.message || `Error deleting Product with id=${id}`,
       });
+      console.log(`\n`);
+      console.log(err);
+      console.log(`\nError deleting Product with id=${id}`);
     });
 };
 
-const productController = { create, findAll, update, remove };
+const productController = { create, findAll, findOne, update, remove };
 module.exports = productController;
