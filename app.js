@@ -18,6 +18,9 @@ app.use("/testingPage", testRoutes);
 const productRoutes = require("./routes/productRoutes");
 app.use("/product", productRoutes);
 
+const couponRoutes = require("./routes/couponRoutes");
+app.use("/coupon", couponRoutes);
+
 //#endregion
 
 // set connection to MongoDB

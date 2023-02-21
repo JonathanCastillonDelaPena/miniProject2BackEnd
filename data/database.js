@@ -6,6 +6,7 @@ db.mongoose = mongoose;
 db.connectionString = process.env.DB_CONNECTION_STRING;
 db.users = require("./dataModels/UserModel");
 db.products = require("./dataModels/productModel");
+db.coupons = require("./dataModels/couponModel");
 
 // schema for testing
 db.tests = require("./dataModels/testModel");
