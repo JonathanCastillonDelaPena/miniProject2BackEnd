@@ -12,6 +12,7 @@ const create = (req, res) => {
 
   const product = new Product({
     name: data.name,
+    imageLink: data.imageLink,
     price: data.price,
     discount: data.discount,
     stock: data.stock,
